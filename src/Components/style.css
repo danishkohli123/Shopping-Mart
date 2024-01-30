@@ -1,0 +1,9 @@
+.hoverpart:hover {
+    background-color: navy;
+    color: white;
+}
+
+.icon:hover {
+    display: block;
+    background-color: blue;
+}
