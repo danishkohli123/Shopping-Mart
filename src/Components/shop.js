@@ -21,6 +21,17 @@ function Shop() {
         ))
         setValues(filterList)
     }
+    const searchEvent = (event) => {
+        let searchValue = event.target.value.trim();
+        let hello = products.filter((product) => {
+            if (searchValue === "") {
+                return product.category.toLowerCase() === "sofa";
+            }
+            return product.productName.toLowerCase().includes(searchValue.toLowerCase())
+        })
+        setValues(hello);
+    }
+
     return (
         <>
             <Header />
@@ -39,7 +50,7 @@ function Shop() {
                         </select>
                     </div>
                     <div style={{ width: '60%', marginLeft: '200px' }}>
-                        <input type="search" placeholder="Search..." style={{ width: '90%', fontSize: '25px', borderRadius: '25px' }} /><FaSearch size={'25px'} style={{ marginLeft: '-40px', marginTop: '-10px' }} />
+                        <input type="search" placeholder="Search..." onChange={(event) => searchEvent(event)} style={{ width: '90%', fontSize: '25px', borderRadius: '25px' }} /><FaSearch size={'25px'} style={{ marginLeft: '-40px', marginTop: '-10px' }} />
                     </div>
                 </div>
             </div>
