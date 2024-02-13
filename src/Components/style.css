@@ -1,9 +1,23 @@
 .hoverpart:hover {
-    background-color: navy;
+    background-color: #020249;
     color: white;
 }
 
 .icon:hover {
     display: block;
-    background-color: blue;
+    background-color: #020249;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
+.dropList {
+    background-color: white;
+    color: #020249;
+}
+
+.dropList:hover {
+    background-color: #020249;
+    color: white;
 }
