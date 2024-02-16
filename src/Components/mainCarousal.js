@@ -1,7 +1,7 @@
 import { corousalList } from './constant';
+import './style.css';
 function MainCarousal() {
     let indicatorArray = Array.from({ length: corousalList.length }, (_, index) => index + 1);
-    // console.log(indicatorArray);
     return (
         <>
             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" >
@@ -21,14 +21,14 @@ function MainCarousal() {
                 <div className="carousel-inner" style={{ backgroundColor: '#eaf3f3f7' }}>
                     {corousalList.map((item, index) => (
                         <div key={index} className={index === 0 ? "carousel-item active" : "carousel-item "}>
-                            <div style={{ marginTop: '70px', display: 'grid', gridTemplateColumns: '45% 45%', justifyContent: 'space-evenly' }}>
+                            <div className='carousals' style={{}}>
                                 <div style={{ display: 'grid', alignSelf: 'center' }}>
-                                    <h1 style={{ fontSize: '55px' }}>{item.title}</h1>
-                                    <p style={{ fontSize: '25px' }}>{item.desc}</p>
-                                    <p style={{ border: '1px solid #f4e6ba', width: '20%', backgroundColor: '#f4e6ba', cursor: 'pointer' }}>Visit Collections</p>
+                                    <h1 className='carousals-title'>{item.title}</h1>
+                                    <p className='carousals-intro'>{item.desc}</p>
+                                    <p className='carousals-highlights' style={{ border: '1px solid #f4e6ba', backgroundColor: '#f4e6ba', cursor: 'pointer' }}>Visit Collections</p>
                                 </div>
-                                <div>
-                                    <img src={item.cover} alt="sofaimage" width={'80%'} />
+                                <div className='carousals-parent-imgs'>
+                                    <img className='carousals-imgs' src={item.cover} alt="sofaimage" />
                                 </div>
                             </div>
                         </div>

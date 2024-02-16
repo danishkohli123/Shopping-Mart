@@ -5,7 +5,7 @@ import './style.css';
 
 function BestSale(props) {
     const { addDataFn } = props
-    
+
     const clickFn = (item) => {
         addDataFn(item)
     }
@@ -18,11 +18,11 @@ function BestSale(props) {
     }
     return (
         <>
-            <div style={{ backgroundColor: '#eaf3f3f7', padding: '50px 100px' }}>
-                <h1 style={{ textAlign: 'center', fontSize: '50px', marginBottom: '20px' }}>Best Sales</h1>
-                <div style={{ display: 'grid', gridTemplateColumns: '30% 30% 30%', justifyContent: 'space-evenly', marginBottom: '50px' }}>
+            <div className="discount-main-parent">
+                <h1 className="discount-title">Best Sales</h1>
+                <div className="discount-sec-parent">
                     {filterarray.map((item, index) => (
-                        < span key={index} className="border p-3 my-3 border-light" style={{ borderRadius: '8px', backgroundColor: 'white' }}
+                        < span key={index} className="discount-item"
                             onMouseEnter={(e) => e.currentTarget.querySelector('.heart-icon').style.display = 'block'}
                             onMouseLeave={(e) => e.currentTarget.querySelector('.heart-icon').style.display = 'none'}>
                             <div style={{ display: "grid", gridTemplateColumns: "90% 10%" }}>
@@ -48,7 +48,7 @@ function BestSale(props) {
                                 ))}
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <div>
+                                <div style={{ display: 'grid', alignItems: 'end' }}>
                                     <h1>{"$" + item.price}</h1>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>

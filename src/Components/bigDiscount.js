@@ -1,6 +1,7 @@
 import { FaPlus, FaStar, FaHeart } from "react-icons/fa";
 import { discoutProducts } from "./constant";
 import { useNavigate } from "react-router-dom";
+import './style.css';
 
 function BigDiscount(props) {
     const { addDataFn } = props
@@ -13,14 +14,12 @@ function BigDiscount(props) {
         navigate("singleProductInfo", { state: item })
     }
     return (
-        <div style={{ backgroundColor: '#eaf3f3f7', padding: '50px 100px' }}>
-            <h1 style={{ textAlign: 'center', fontSize: '50px', marginBottom: '20px' }}>Big Discount</h1>
-            <div style={{ display: 'grid', gridTemplateColumns: '30% 30% 30%', justifyContent: 'space-evenly', marginBottom: '50px' }}>
+        <div className="discount-main-parent">
+            <h1 className="discount-title">Big Discount</h1>
+            <div className="discount-sec-parent">
                 {discoutProducts.map((item, index) => (
-                    <span
+                    <span className="discount-item"
                         key={index}
-                        className="border p-3 my-3 border-light"
-                        style={{ borderRadius: '8px', backgroundColor: 'white' }}
                         onMouseEnter={(e) => e.currentTarget.querySelector('.heart-icon').style.display = 'block'}
                         onMouseLeave={(e) => e.currentTarget.querySelector('.heart-icon').style.display = 'none'}>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -48,7 +47,7 @@ function BigDiscount(props) {
                             ))}
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <span>
+                            <span style={{ display: 'grid', alignItems: 'end' }}>
                                 <h1>{"$" + item.price}</h1>
                             </span>
                             <span style={{ display: 'flex', alignItems: 'center' }}>

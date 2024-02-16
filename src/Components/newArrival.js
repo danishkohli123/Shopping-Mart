@@ -18,11 +18,11 @@ function NewArrival(props) {
     }
     return (
         <>
-            <div style={{ padding: '50px 100px' }}>
-                <h1 style={{ textAlign: 'center', fontSize: '50px', marginBottom: '20px' }}>New Arrivals</h1>
-                <div style={{ display: 'grid', gridTemplateColumns: '30% 30% 30%', justifyContent: 'space-evenly', marginBottom: '50px' }}>
+            <div className="arrival-main-parent">
+                <h1 className="arrival-title">New Arrivals</h1>
+                <div className="arrival-sec-parent">
                     {filterarray.map((item, index) => (
-                        < span key={index} className="border p-3 my-3 " style={{ borderRadius: '8px', backgroundColor: 'white' }}
+                        < span key={index} className="arrival-item"
                             onMouseEnter={(e) => e.currentTarget.querySelector('.heart-icon').style.display = 'block'}
                             onMouseLeave={(e) => e.currentTarget.querySelector('.heart-icon').style.display = 'none'}>
                             <div style={{ display: 'grid', gridTemplateColumns: '90% 10%' }}>
@@ -49,7 +49,7 @@ function NewArrival(props) {
                                 ))}
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <div>
+                                <div style={{display:'grid',alignItems:'end'}}>
                                     <h1>{"$" + item.price}</h1>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>

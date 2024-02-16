@@ -2,10 +2,11 @@ import { useState } from "react";
 import { FaStar, FaUser, FaPlus } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { products } from "./constant";
+import './style.css';
 
 function SingleProductInfo(props) {
     const { addDataFn } = props
-    
+
     let location = useLocation();
     const [data, setData] = useState(location.state)
     const [isdescriptionVisible, setDescriptionVisibility] = useState(true);
@@ -16,18 +17,16 @@ function SingleProductInfo(props) {
     }
 
     const clickFn = (item) => {
-        addDataFn(item,itemQuantity)
+        addDataFn(item, itemQuantity)
         console.log(item);
     }
 
-    // console.log(data)
     let stars = Array.from({ length: (Math.ceil(data.avgRating)) }, (_, index) => index + 1)
 
     const relatedData = products.filter((items) => {
         return items.category === data.category
     })
 
- 
     const itemQuantityOnChangeListener = (e) => {
         let value = e.target.value
         if (value <= 0) {
@@ -38,12 +37,12 @@ function SingleProductInfo(props) {
     return (
         <>
             <div style={{ position: 'relative' }}>
-                <h1 style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: '2', color: 'white' }}>{data.productName}</h1>
+                <h1 className="single-product-img-title" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: '2', color: 'white' }}>{data.productName}</h1>
                 <div>
-                    <img style={{ position: 'relative', zIndex: '1', filter: 'grayscale(100%) brightness(0.5)' }} src="/images/table.jpg" alt="backgroundImg" width={'100%'} height={'280px'} />
+                    <img className="singleproduct-img" src="/images/table.jpg" alt="backgroundImg" />
                 </div>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '45% 40%', justifyContent: 'space-evenly', padding: '50px 0px' }}>
+            <div className="single-product-mainitem">
                 <div>
                     <img src={"/" + data.imgUrl} alt="emptyImg" width={'100%'} />
                 </div>
@@ -93,8 +92,8 @@ function SingleProductInfo(props) {
                     </div>
                 ))
             }
-            <h6 style={{ fontSize: '30px', marginTop: '70px', padding: '0px 20px' }}>You might also like</h6>
-            <div style={{ display: 'grid', gridTemplateColumns: '31% 31% 31%', justifyContent: 'space-evenly', marginBottom: '50px', padding: '0px 100px' }}>
+            <h6 className="Extra-item-heading">You might also like</h6>
+            <div className="Extra-item">
                 {relatedData.map((item, index) => (
                     <span
                         key={index}
@@ -118,7 +117,7 @@ function SingleProductInfo(props) {
                             ))}
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <div>
+                            <div style={{ display: 'grid', alignItems: 'end' }}>
                                 <h1>{"$" + item.price}</h1>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center' }}>

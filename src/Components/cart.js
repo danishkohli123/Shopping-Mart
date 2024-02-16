@@ -1,3 +1,4 @@
+import './style.css';
 function Cart(props) {
     let { cartData } = props
     let { prize } = props
@@ -9,19 +10,19 @@ function Cart(props) {
             <div style={{ display: 'grid', gridTemplateColumns: '60% 35%', justifyContent: 'space-evenly', backgroundColor: 'rgba(234, 243, 243, 0.97)', paddingTop: '50px' }}>
                 <div>
                     {cartData.length === 0
-                        ? <div style={{ border: '1px solid white', backgroundColor: 'white', borderRadius: '10px', paddingLeft: '15px', paddingTop: '20px', height: '200px' }}>
-                            <h3>{"No item are add in Cart"}</h3>
+                        ? <div className="cart-empty">
+                            <h3 className="cart-empty-heading">{"No item are add in Cart"}</h3>
                         </div>
                         : cartData.map((item, index) => (
-                            <div key={index} style={{ display: 'grid', gridTemplateColumns: '30% 65%', justifyContent: 'space-evenly', marginBottom: '30px', border: '1px solid white', backgroundColor: 'white', padding: '5px' }}>
+                            <div className='cart-price-mainParent' key={index}>
                                 <span>
                                     <img src={item.product.imgUrl} style={{ width: '100%', height: '150px' }} alt="img" />
                                 </span>
                                 <div>
                                     <h5 style={{ textAlign: 'end', marginBottom: '0%', cursor: 'pointer' }} onClick={() => deleteFn(item.product.id)}>{'X'}</h5>
-                                    <h2 style={{ marginBottom: '35px' }}>{item.product.productName}</h2>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                        <div style={{ display: 'grid', gridTemplateColumns: '80% 70%', alignItems: 'center' }}>
+                                    <h2 className='Cart-itemName'>{item.product.productName}</h2>
+                                    <div className='cart-price-parent'>
+                                        <div className='cart-price-secondParent' style={{ }}>
                                             <div>
                                                 <p style={{ marginBottom: '0%' }}>{` $${item.product.price}.00 *  ${item.quantity}`}</p>
                                             </div>
@@ -42,8 +43,8 @@ function Cart(props) {
                             </div>
                         ))}
                 </div>
-                <div style={{ border: '1px solid white', paddingLeft: '15px', paddingTop: '20px', height: '200px', backgroundColor: 'white', marginBottom: '50px', borderRadius: '10px' }}>
-                    <h3 style={{ marginBottom: '50px' }}>Cart Summary</h3>
+                <div className='cart-empty' style={{ marginBottom: '50px' }}>
+                    <h3 className='cart-empty-heading' style={{ marginBottom: '50px' }}>Cart Summary</h3>
                     <h6>Total Price :</h6>
                     <h5>{`$${prize}.00`}</h5>
                 </div>

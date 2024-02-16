@@ -38,15 +38,14 @@ function Shop(props) {
 
     return (
         <>
-
-            <div style={{ position: 'relative' }}>
-                <h1 style={{ position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: '2', color: 'white' }}>product</h1>
-                <div style={{ width: '100%' }}>
-                    <img style={{ position: 'relative', zIndex: '1', filter: 'grayscale(100%) brightness(0.5)', height: '280px' }} src="images/table.jpg" alt="backgroundImg" width={'100%'} />
+            <div className="shop-mainParent">
+                <h1 className="shop-img-title">product</h1>
+                <div className="shop-img-parent">
+                    <img className="shop-img" src="images/table.jpg" alt="backgroundImg" />
                 </div>
-                <div style={{ marginTop: '50px', marginLeft: '30px', display: 'flex', marginBottom: '80px' }}>
-                    <div>
-                        <select id="dropdown" onChange={(e) => productSelectionListener(e)} style={{ fontSize: '20px', padding: '5px', backgroundColor: '#020249', color: 'white', borderRadius: '10px' }}>
+                <div className="shop-secondParent">
+                    <div className="droplistMain-parent">
+                        <select id="dropdown" onChange={(e) => productSelectionListener(e)} className="droplist-parent">
                             <option className="dropList" hidden value="Sofa">Filter By Category |</option>
                             <option className="dropList" value="Sofa">Sofa</option>
                             <option className="dropList" value="Chair">Chair</option>
@@ -55,13 +54,13 @@ function Shop(props) {
                             <option className="dropList" value="wireless">Wireless</option>
                         </select>
                     </div>
-                    <div style={{ width: '60%', marginLeft: '200px' }}>
-                        <input type="search" placeholder="Search..." onChange={(event) => searchEvent(event)} style={{ width: '90%', paddingLeft: '10px', fontSize: '21px', borderRadius: '25px' }} /><FaSearch size={'23px'} style={{ marginLeft: '-40px', marginTop: '-10px' }} />
+                    <div className="shop-searchParent">
+                        <input className="shop-searchBar" type="search" placeholder="Search..." onChange={(event) => searchEvent(event)} /><FaSearch size={'23px'} className="searchIcon" />
                     </div>
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '30% 30% 30%', justifyContent: 'space-evenly', marginBottom: '50px', padding: '0px 100px' }}>
+            <div className="shop-listItem">
                 {values.map((item, index) => (
                     < span key={index} className="border p-3 my-3 " style={{ backgroundColor: 'white', borderRadius: '8px' }}
                         onMouseEnter={(e) => e.currentTarget.querySelector('.heart-icon').style.display = 'block'}
@@ -88,7 +87,7 @@ function Shop(props) {
                             ))}
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <div>
+                            <div style={{display:'grid',alignItems:'end'}}>
                                 <h1>{"$" + item.price}</h1>
                             </div>
                             <div style={{ display: 'flex', alignItems: "center" }}>
