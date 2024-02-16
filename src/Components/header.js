@@ -9,11 +9,11 @@ function Header(props) {
     <>
       <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center" style={{marginLeft:'10px'}}>
             <div>
               <FaShoppingBag size={23} />
             </div>
-            <h1 className="navbar-brand" style={{ marginBottom: '0', fontSize: '25px', marginLeft: '2px' }}>Mart</h1>
+            <h1 className="navbar-brand" style={{ marginBottom: '0', fontSize: '25px', marginLeft:'2px',marginRight:'0px' }}>Mart</h1>
           </div>
           <div className="d-lg-none align-items-center" style={{ display: 'flex' }}> {/* Hide on larger screens */}
             <div style={{ marginRight: '40px' }}>
@@ -34,13 +34,13 @@ function Header(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{ marginLeft: '43%' }}>
               <li className="nav-item" style={{ marginRight: '40px' }}>
-                <h4 className="nav-link" style={{ marginRight: '20px', marginBottom: '0', cursor: 'pointer' }} onClick={() => navigate("/", { state: addToCart })}>Home</h4>
+                <h2 className="nav-link" style={{ marginRight: '20px', marginBottom: '0', cursor: 'pointer',fontWeight:'bold',fontSize:'20px' }} onClick={() => navigate("/", { state: addToCart })}>Home</h2>
               </li>
               <li className="nav-item" style={{ marginRight: '40px' }}>
-                <h4 className="nav-link" style={{ marginRight: '20px', marginBottom: '0', cursor: 'pointer' }} onClick={() => navigate("/shop", { replace: true })}>Shop</h4>
+                <h2 className="nav-link" style={{ marginRight: '20px', marginBottom: '0', cursor: 'pointer',fontWeight:'bold',fontSize:'20px' }} onClick={() => navigate("/shop", { replace: true })}>Shop</h2>
               </li>
               <li className="nav-item" style={{ marginRight: '40px' }}>
-                <h4 className="nav-link" style={{ marginRight: '20px', marginBottom: '0', cursor: 'pointer' }} onClick={() => navigate("/cart", { state: addToCart }, { replace: true })}>Cart</h4>
+                <h2 className="nav-link" style={{ marginRight: '20px', marginBottom: '0', cursor: 'pointer',fontWeight:'bold',fontSize:'20px' }} onClick={() => navigate("/cart", { state: addToCart }, { replace: true })}>Cart</h2>
               </li>
             </ul>
             <div className="d-none d-lg-flex align-items-center" style={{ marginRight: '10%' }}> {/* Hide on smaller screens */}
